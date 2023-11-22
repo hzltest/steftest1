@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image, Text, View, ScrollView } from 'react-native';
+import { Image, Text, View, ScrollView, Pressable } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 
 // Import helper code
@@ -9,32 +9,59 @@ import Settings from '../constants/Settings';
 import Styles from "../styles/MainStyle";
 import { MyButton } from '../components/MyButton';
 import { TextH1, TextParagraph } from "../components/StyledText";
+import { imageIndex } from '../constants/images';
 
 
 export default function HomeScreen(props) {
+
+  const [isLogoColor,setLogoColor] = React.useState(true);
 
   function showHelp() {
     props.navigation.replace('Root', {screen: 'Help'});
   }
 
+  function toggleLogo(){
+    setLogoColor(!isLogoColor)
+  }
+
+  function showViewPeople() {
+    props.navigation.replace('Root', {screen: 'People'});
+  }
+
+  
+
   return (
     <SafeAreaView style={Styles.safeAreaView}>
       <ScrollView style={Styles.container} contentContainerStyle={Styles.contentContainer}>
         
-        <TextH1>This is the home screen</TextH1>
+      <View style = {Styles.homeLogoContainer}>
+        <Pressable onPress={toggleLogo}>
+        <Image source = {imageIndex[isLogoColor ? 'logo':'mono']} style ={Styles.homeLogo}/>  
+        </Pressable>
+      </View> 
 
-        <TextParagraph>Here is some sample text for the home screen.</TextParagraph>
-
-        <TextParagraph>There is no place like 127.0.0.1</TextParagraph>
+       <View style={Styles.homeHeadingContainer}>
+          <Text style={Styles.homeHeading}>ROI HR Management System</Text>
+      </View>
         
-        <View style={{alignItems: 'center', justifyContent: 'center', marginVertical: 40}}>
+        <View style={Styles.homeButtonContainer}>
           <MyButton
-            text="Show help screen"
+            text="View People"
             type="major"      // default*|major|minor
             size="large"      // small|medium*|large
+            onPress={showViewPeople}
+            buttonStyle = {Styles.homeButton}
+          />
+
+          <MyButton
+            text="Show help screen"
+            type="default"      // default*|major|minor
+            size="large"      // small|medium*|large
             onPress={showHelp}
+            buttonStyle = {Styles.homeButton}
           />
         </View>
+
       </ScrollView>
     </SafeAreaView>
   );
