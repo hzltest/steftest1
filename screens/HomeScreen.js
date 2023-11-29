@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Image, Text, View, ScrollView, Pressable } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 
+
 // Import helper code
 import Settings from '../constants/Settings';
 
@@ -41,12 +42,12 @@ export default function HomeScreen(props) {
       </View> 
 
        <View style={Styles.homeHeadingContainer}>
-          <Text style={Styles.homeHeading}>ROI HR Management System</Text>
+          <Text style={Styles.homeHeading}>HR Management System</Text>
       </View>
         
         <View style={Styles.homeButtonContainer}>
           <MyButton
-            text="View People"
+            text="People"
             type="major"      // default*|major|minor
             size="large"      // small|medium*|large
             onPress={showViewPeople}
@@ -54,14 +55,17 @@ export default function HomeScreen(props) {
           />
 
           <MyButton
-            text="Show help screen"
+            text="help"
             type="default"      // default*|major|minor
             size="large"      // small|medium*|large
             onPress={showHelp}
             buttonStyle = {Styles.homeButton}
           />
         </View>
-
+        <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
+  <Text style={{ color: 'lightgray', fontSize: 14 }}>Developed by</Text>
+  <Text style={{ fontSize: 18 }}>Huizi Li</Text>
+</View>
       </ScrollView>
     </SafeAreaView>
   );

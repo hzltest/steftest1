@@ -1,5 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
+import AddPersonScreen from '../screens/AddPersonScreen';
 
 // Import styling and components
 import TabBarIcon from '../components/TabBarIcon';
@@ -45,6 +46,14 @@ export default function BottomTabNavigator({ navigation, route }) {
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-people" />
         }}
       />
+      <BottomTab.Screen
+  name="AddPerson"
+  component={AddPersonScreen}
+  options={{
+    title: 'Add Person',
+    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person-add" />,
+  }}
+/>
       <BottomTab.Screen
         name="Help"
         component={HelpScreen}
