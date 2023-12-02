@@ -12,6 +12,7 @@ import NetInfo from '@react-native-community/netinfo';
 import { TextParagraph, TextH1, TextH2 } from "../components/StyledText";
 import Styles from "../styles/MainStyle";
 import { MyButton } from '../components/MyButton';
+import { infoMessage } from '../utils/flashMessage';
 
 
 export default function ViewPeopleScreen(props) {

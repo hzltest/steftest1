@@ -42,7 +42,7 @@ export default function HomeScreen(props) {
       </View> 
 
        <View style={Styles.homeHeadingContainer}>
-          <Text style={Styles.homeHeading}>HR Management System</Text>
+          <Text style={Styles.homeHeading}>Employee Management System</Text>
       </View>
         
         <View style={Styles.homeButtonContainer}>
@@ -63,8 +63,8 @@ export default function HomeScreen(props) {
           />
         </View>
         <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
-  <Text style={{ color: 'lightgray', fontSize: 14 }}>Developed by</Text>
-  <Text style={{ fontSize: 18 }}>Huizi Li</Text>
+  <Text style={{ color: 'darkgray', fontSize: 20 }}>Developed by</Text>
+  <Text style={{ fontSize: 25 }}>Huizi Li</Text>
 </View>
       </ScrollView>
     </SafeAreaView>
